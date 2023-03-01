@@ -1,4 +1,4 @@
-opencv_python
+opencv-python
 pytesseract
 pyttsx3
 streamlit
