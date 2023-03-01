@@ -1,4 +1,4 @@
-opencv-python
-pytesseract
-pyttsx3
-streamlit
+opencv-python==4.6.0.66
+pytesseract==0.3.10
+pyttsx3==2.90
+streamlit==1.15.2
