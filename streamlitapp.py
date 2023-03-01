@@ -82,11 +82,15 @@ def app():
                         cr = img[box[1]:box[1]+box[3], box[0]:box[0]+box[2]]
                         cv2.imshow("cropped", cr)
                         read_text_box(box[0], box[1], box[2], box[3], img, classNames[classId-1])
+                        
                     if b4:
                         distance = 1.0/(confidence*100)
                         print(distance)
                         engine.say("Distance to "+classNames[classId-1]+" is "+str(distance)+" meters")
                         engine.runAndWait()
+                        
+                    b3 = False
+                    b4 = False
                 else:
                     cv2.rectangle(img,box,color=(0,255,0),thickness=2)
                     cv2.putText(img,classNames[classId-1].upper(),(box[0]+10,box[1]+30),
@@ -96,10 +100,12 @@ def app():
             if b2:
                 say_middle_names()
                 clear_middle()
+                b2 = False
             clear_middle()
 
             if b1:
                 break
+                b1 = False
             
         video_feed.image(img, channels="BGR")
         cv2.waitKey(1)
